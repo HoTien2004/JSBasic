@@ -1,16 +1,9 @@
-var promise1 = new Promise(function(resolve) {
-    setTimeout(function() {
-        resolve([1]);
-    }, 2000)
-})
+var courseApi = 'http://localhost:3000/courses'
 
-var promise2 = new Promise(function(resolve) {
-    setTimeout(function() {
-        resolve([2, 3]);
-    }, 5000)
-})
-
-Promise.all([promise1, promise2])
-    .then(function([result1, result2]) {
-        console.log(result1.concat(result2))
-    });
+fetch(courseApi)
+    .then(function(response) {
+        return response.json();
+    })
+    .then(function(courses) {
+        console.log(courses);
+    })

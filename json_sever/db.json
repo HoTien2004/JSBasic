@@ -1,0 +1,14 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "name": "Kiến thức cơ bản",
+            "description": "Dành cho người mới bắt đầu"
+        },
+        {
+            "id": 2,
+            "name": "Kiến thức tin học",
+            "description": "Dành cho người mới bắt đầu 2"
+        }
+    ]
+}
