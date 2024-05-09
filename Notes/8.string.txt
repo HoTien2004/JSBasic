@@ -1,0 +1,78 @@
+Chuỗi trong Javascript 
+
+1. Tạo chuỗi 
+    - Các cách tạo chuỗi
+    - Nên dùng cách nào? Lý do?
+    - Kiểm tra data type
+
+    var fullName = 'Quyet Tien'; --> string
+    var fullName = new String('fullName'); --> object
+2. Một số case sử dụng backslash (\)
+3. Xem độ dài chuỗi
+    var fullName = 'Quyet Tien';
+
+    console.log(fullName.length);
+4. Chú ý độ dài khi viết Code
+5. Template string ES6
+    var firstName = 'Tien';
+    var lastName = 'Ho';
+
+    console.log(`Toi la:  ${firstName}  ${lastName}`);
+
+* Làm việc với chuỗi
+
+var myString = 'Ho Doan Tien Quyet Tien';
+
+1. length
+
+    console.log(myString.length);
+
+2. find index
+
+    console.log(myString.indexOf('Tien', 11));
+    console.log(myString.lastIndexOf('Tien'));
+    console.log(myString.search('Tien'));
+
+3. cut string
+
+    console.log(myString.slice(3, 7));
+
+4. replace 
+
+    console.log(myString.replace('Tien', 'dep trai'));
+    console.log(myString.replace(/Tien/g, 'dep trai')); --> Biểu thức chính quy Regex
+
+5. convert to upper case
+
+    console.log(myString.toUpperCase());
+
+6. convert to lower case
+
+    console.log(myString.toLowerCase());
+
+7. trim : loại bỏ khoảng cách trắng thừa ở đầu và cuối chuỗi
+
+    console.log(myString.trim());
+
+8. split : Cắt 1 chuỗi thành 1 array con
+
+    var languages = 'Javascript, PHP, Ruby';
+
+    console.log(languages.split(','));
+
+    var languages = 'Javascript';
+
+    console.log(languages.split(''));
+
+9. get a character by index : Lấy chữ cái từ một index
+
+    const myString2 = 'Quyet Tien';
+
+    console.log(myString2.charAt(10)); ví dụ nếu không tìm được thì sẽ trả về string nhưng phải sử dụng typeof mới thấy được. console.log(typeof myString2.charAt(10));
+
+    const myString2 = 'Quyet Tien';
+
+    console.log(myString2[6]); ví dụ không tìm được thì sẽ trả về undefined
+
+...
+

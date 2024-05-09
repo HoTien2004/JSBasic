@@ -1,0 +1,36 @@
+Giới thiệu về toán tử trong Javascript.
+
+    1. Toán tử số học - Arithmetic
+        +  : Cộng
+        -  : Trừ
+        *  : Nhân
+        ** : Luỹ thừa
+        /  : Chia
+        %  : Chia lấy số dư
+        ++ : Tăng 1 giá trị số 
+        -- : Giảm 1 giá trị số 
+        Prefix  : Tiền tố
+        Postfix : Hậu tố
+    2. Toán tử gán - Assignment
+        Toán tử            Ví dụ            Tương đương
+        =                  x = y            x = y        
+        +=                 x += y           x = x + y
+        -=                 x -= y           x = x - y
+        *=                 x *= y           x = x * y
+        /=                 x /= y           x = x / y
+        **=                x **= y          x = x ** y
+        Toán tử chuỗi - String operator
+    3. Toán tử so sánh - Comparison
+        == : Bằng
+        != : Không bằng
+        >  : Lớn hơn
+        <  : Nhỏ hơn
+        >= : Lớn hơn hoặc bằng
+        <= : Nhỏ hơn hoặc bằng
+
+        ===
+        !==
+    4. Toán tử logic - Logical
+        1. && : And
+        2. || : Or
+        3. !  : Not

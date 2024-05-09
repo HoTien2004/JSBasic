@@ -1,0 +1,52 @@
+Giới thiệu về cấu trúc rẽ nhánh trong Javascript.
+
+var isSuccess = 1 < 2;
+
+if (isSuccess) {
+    console.log("Dieu kien dung");
+} else {
+    console.log("Dieu kien sai");
+}
+
+- Các điều kiện sai
+    1. 0
+    2. false
+    3. '' or ""
+    4. undefined
+    5. NaN
+    6. null
+- Các điều kiện đúng (chỉ cần khác với điều kiện sai thì sẽ là đúng hết)
+
+---------------------------------------
+
+Câu lệnh rẽ nhanh - Switch
+
+var date = 4;
+
+switch(date) {
+    case 2:
+        console.log('Hôm nay là thứ 2');
+        break;
+    case 3:
+        console.log('Hôm nay là thứ 3');
+        break;
+    case 4:
+        console.log('Hôm nay là thứ 4');
+        break;  
+    case 5:
+        console.log('Hôm nay là thứ 5');
+        break;
+    default:
+        console.log('Không biết');
+}
+
+
+Cần có break để ngăn cản các lệnh phía sau câu lệnh đúng
+
+* Toán tử 3 ngôi - Ternary operator
+
+    var date = 1;
+
+    var a = date > 3 ? "Đúng" : "Sai";
+
+    console.log(a);

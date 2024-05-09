@@ -1,0 +1,10 @@
+Math Object
+
+- Math.Pi       : số Pi       
+- Math.round()  : làm tròn
+- Math.abs()    : trị tuyệt đối
+- Math.ceil()   : làm tròn trên
+- Math.floor()  : làm tròn dưới
+- Math.random() : tạo ra 1 số thập phân ngẫu nhiên nhỏ hơn một
+- Math.min()    : tìm số nhỏ nhất
+- Math.max()    : tìm số lớn nhất

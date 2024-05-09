@@ -1,0 +1,90 @@
+Object trong JavaScript
+
+var emailKey = 'email';
+
+var myInfo = {
+    name: 'Tien',
+    age: 20,
+    address: 'Binh Dinh, VN',
+    [emailKey]: 'tiendeptrai@gmail.com',
+    getName: function() {
+        return this.name;
+    }
+};
+
+myInfo['my-email'] = 'hotien@gmail.com'
+
+
+var myKey = 'address'
+
+
+console.log(myInfo);
+console.log(myInfo.name);
+console.log(myInfo['address']);
+console.log(myInfo[myKey]);
+
+delete myInfo[myKey];
+
+
+console.log(myInfo);
+
+//Function --> Phương thức / Method
+// Others --> Thuộc tính / Property
+
+console.log(myInfo.getName());
+
+* Nếu 1 key không có thì trả về undefined
+
+* Object constructor
+
+function User(firstName, lastName, avatar) {    
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.avatar = avatar;
+
+    this.getName = function() { 
+        return `${this.firstName} ${this.lastName}`
+    }
+}   
+
+var author = new User('Tien', 'Ho', 'Avatar');
+var user = new User('Thang', 'Ho', 'Avatar');
+
+author.title = 'Chao cac ban'
+
+console.log(author);
+console.log(user);
+console.log(user.getName());
+
+* Object prototype
+1. prototype là gì?
+2. Sử dụng khi nào?
+
+function User(firstName, lastName, avatar) {    
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.avatar = avatar;
+
+    this.getName = function() { 
+        return `${this.firstName} ${this.lastName}`
+    }
+}   
+
+var author = new User('Tien', 'Ho', 'Avatar');
+var user = new User('Thang', 'Ho', 'Avatar');
+
+author.title = 'Chao cac ban'
+
+User.prototype.className = 'F8';
+User.prototype.getClassName = function() {
+    return this.className;
+}
+
+console.log(user.className);
+console.log(author.getClassName());
+
+
+
+
+
+

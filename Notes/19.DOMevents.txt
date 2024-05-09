@@ -1,0 +1,214 @@
+// DOM events
+// 1.Attribute events
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onclick="console.log(this)">
+        <span onclick="console.log(this)">DOM events</span>
+    </h1>
+</body>
+    <script src="./main.js"></script>
+</html>
+
+// 2.Assign event using the element node
+
+var h1Element = document.querySelectorAll('h1')
+
+for (var i = 0; i < h1Element.length; ++i) {
+    h1Element[i].onclick = function(e) {
+        console.log(e.target)
+    }
+}
+
+// 1. Input / select
+
+* type = "text"
+
+var inputValue;
+
+var inputElement = document.querySelector('input[type="text"]')
+
+inputElement.onchange = function(e) { // oninput
+    inputValue= e.target.value;
+}
+
+* type = "checkbox"
+
+var inputElement = document.querySelector('input[type="checkbox"]');
+
+inputElement.onchange = function(e) {
+    console.log(e.target.checked);
+}
+
+* select
+
+var inputElement = document.querySelector('select');
+
+inputElement.onchange = function(e) {
+    console.log(e.target.value);
+}
+
+** in ra value trong thẻ option
+
+// 2. Key up / down
+
+var inputElement = document.querySelector('input[type="text"]');
+
+inputElement.onkeyup = function(e) { //onkeydown // onkeypress
+    console.log(e.which);
+
+    switch (e.which) {
+        case 65:
+            console.log('Exit');
+            break;
+    }
+}
+
+// DOM events: PreventDefault and StopPropagation
+
+1. PreventDefault
+
+vd1:
+
+html
+[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://f8.edu.vn">Học lập trình</a>
+    
+    <br>
+
+    <a href="https://google.com.vn">Tìm kiếm</a>
+</body>
+    <script src="./main.js"></script>
+</html>]
+
+js
+[var aElement = document.links;
+
+for (var i = 0; i < aElement.length; i++) {
+    aElement[i].onclick = function(e) {
+        if (!e.target.href.startsWith('https://f8.edu.vn')) {
+            e.preventDefault();
+        }
+    }
+}]
+
+vd2:
+
+html
+[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            display: none;
+        }
+
+        input:focus ~ ul {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <input placeholder="Tìm kiếm">
+
+    <ul>
+        <li>Js</li>
+        <li>PHP</li>
+        <li>Golang</li>
+    </ul>
+</body>
+    <script src="./main.js"></script>
+</html>]
+
+js
+[var ulElement = document.querySelector('ul');
+
+ulElement.onmousedown = function(e) {
+    e.preventDefault();
+}
+
+ulElement.onclick = function(e) {
+    console.log(e.target);
+}]
+
+2. StopPropagation
+
+html
+[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        DIV
+        <button>Click</button>
+    </div>
+</body>
+    <script src="./main.js"></script>
+</html>]
+
+js
+[document.querySelector('div').onclick = function() {
+    console.log('DIV');
+}
+
+document.querySelector('button').onclick = function(e) {
+    e.stopPropagation();
+    console.log('Click me!');
+}]
+
+// Event listener
+1. Xử lý nhiều việc khi 1 event xảy ra
+2. Lắng nghe / Huỷ bỏ lắng nghe
+
+html[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button id="btn">Click</button>
+</body>
+    <script src="./main.js"></script>
+</html>]
+
+js
+[var btn = document.getElementById('btn');
+
+
+function viec1() {
+    console.log('Viec 1')
+}
+
+function viec2() {
+    console.log('Viec 2')
+}
+
+btn.addEventListener('click', viec1); 
+btn.addEventListener('click', viec2); 
+
+setTimeout(function() {
+    btn.removeEventListener('click', viec1); 
+}, 3000)]

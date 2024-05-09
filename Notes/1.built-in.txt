@@ -1,0 +1,21 @@
+Giới thiệu một số hàm built-in.
+
+    1. alert : Thông báo.
+        - alert("Thông báo");
+    2. console :
+        - console.log("Day la 1 dong log); : In ra màn hình trên devtools (chỗ console).
+        - console.warn("Cảnh báo") : In ra cảnh báo có kí hiệu tam giác màu vàng ⚠️.
+        - console.error("Lỗi") : Báo lỗi ❌.
+        - ...
+    3. confirm : Xác nhận gì đó.
+        - confirm("Xac nhan ban bao nhieu tuoi!");
+    4. prompt : Giống confirm nhưng có thêm 1 ô để nhập gì đó.
+        - prompt("Xac nhan ban bao nhieu tuoi!");
+    5. setTimeout : Thực thi 1 đoạn code sau ... mili giây (chỉ xuất hiện 1 lần).
+        - setTimeout(function() {
+            alert("Thong bao");
+          }, 1000)
+    6. setInterval : Thực thi 1 đoạn code sau ... mili giây (xuất hiện liên tục n lần sau khoảng thời gian đã set trước đó).
+        - setInterval(function() {
+            alert("Thong bao");
+          }, 2000)

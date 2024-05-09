@@ -1,0 +1,42 @@
+Giới thiệu về kiểu dữ liệu trong Javascript.
+
+1. Dữ liệu nguyên thuỷ - Primitive Data
+    - Number    : var a = 1;
+    - String    : var name = 'Tien'
+    - Boolean   : var isSucceeded = true;
+    - Undefined : var age;
+    - Null      : var isNull = null;
+    - Symbol    : var id = Symbol('id); unique
+2. Dữ liệu phức tạp - Complex Data
+    - Function
+        var myFunction = function() {
+            alert('HI EVERYONE');
+        }
+
+        myFunction();
+    - Object type
+        + Object
+            var myOject = {
+                name: 'Quyet Tien',
+                age: 20,
+                adress: 'Binh Dinh',
+                var myFunction = function() {
+                    alert('HI EVERYONE');
+                }
+            };
+
+            console.log('myOject', myOject);
+        + Array
+            var myArray = [
+                'Javascript',
+                'PHP',
+                'Ruby'
+            ];
+
+ *Kiểm tra kiểu dữ liệu
+        console.log(typeof a);
+        console.log(typeof name);
+        console.log(typeof isSucceeded);
+        console.log(typeof myArray);
+        ...
+        console.log(typeof isNull); --> Object

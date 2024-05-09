@@ -1,0 +1,136 @@
+// HTML DOM (quy chuẩn của W3C)
+
+// Có 3 thành phần
+    1. Element
+    2. Attribute
+    3. Text
+
+// Node
+
+* Bonus:
+// Core DOM
+// XML DOM
+// HTML DOM
+
+----------------------------------------------------------------
+
+// Javascript chỉ cung cấp công cụ để truy xuất cấu trúc của HTML DOM 
+// chứ HTML DOM không phải của Javascript
+
+//1. HTML DOM
+//Là quy chuẩn mô tả mô hình của các thành phần trong tài liệu HTML được đưa ra bởi W3C.
+
+//2. DOM API
+//Là bộ API nằm trong Web API có mặt trên những môi trường hỗ trợ duyệt web - như trên trình duyệt. DOM API cung cấp các đối tượng và phương thức hỗ trợ truy xuất, chỉnh sửa các đối tượng / thành phần trong DOM.
+
+----------------------------------------------------------------
+
+// Document object
+
+// 1. getElementById - trả về trực tiếp element
+// 2. getElementsByClassName
+// 3. getElementsByTagName
+// 4. querySelector - trả về trực tiếp element
+// 5. querySelectorAll
+// 6. HTML collection
+// 7. document.write
+
+document.write('Hello world');
+
+1. Element : ID, class, tag, CSS selector, HTML collection
+2. Attribute
+3. Text
+
+document.getElementById('heading');
+document.getElementsByClassName('heading');
+document.getElementsByTagName('h1');
+document.querySelector('.heading');
+document.querySelector('.box .heading:nth-child(2)');
+document.querySelectorAll('.heading');
+console.log(document.forms); // HTML collection
+console.log(document.forms[1]); // HTML collection
+console.log(document.forms['form-1]) // HTML collection
+console.log(document.forms.testForm); // HTML collection
+console.log(document.anchors); // Trả về các thuộc tính là thẻ a
+console.log(document.images);
+
+var boxNode = document.querySelector('.box-1')
+
+console.log(boxNode.querySelectorAll('li'));
+
+// DOM Attributes
+
+var headingElement = document.querySelector('h1');
+
+// console.log(headingElement);
+
+headingElement.title = 'Heading';
+
+headingElement.setAttribute('data', 'test')
+
+console.log(headingElement.getAttribute('class'));
+console.log(headingElement.getAttribute('data'));
+console.log(headingElement.getAttribute('title'));
+alert(headingElement.title)
+
+* Test thay đổi màu sắc 
+
+html: 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+    #heading-test {
+        color: red;
+    }
+
+    .test {
+        color: blue !important;
+    }
+</style>
+<body>
+    <h1 id="heading-test">Heading</h1>
+    <script src="./main.js"></script>
+</body>
+</html>   
+
+js:
+
+var headingElement = document.querySelector('h1');
+
+headingElement.setAttribute('class', 'test');
+
+// InnerText vs textContent Property
+
+var headingElement = document.querySelector('h1');
+
+console.log(headingElement.textContent) // geter
+headingElement.textContent = 'newHeading' // seter
+console.log(headingElement.textContent)
+
+// InnerHTML vs OuterHTML Property
+
+1. InnerHTML
+
+var boxElement = document.querySelector('.box')
+
+boxElement.innerHTML = '<h1 style="color: #ccc">New Heading</h1>'
+
+console.log(boxElement.innerHTML)
+
+console.log(document.querySelector('h1').innerText)
+
+2. OuterHTML
+
+var boxElement = document.querySelector('.box')
+
+console.log(boxElement.outerHTML)
+
+// Node properties

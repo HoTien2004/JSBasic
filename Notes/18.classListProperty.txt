@@ -1,0 +1,27 @@
+// ClassList Property
+
+// add
+// contains
+// remove
+// toggle
+
+var boxElement = document.querySelector('.box')
+
+boxElement.classList.add('red', 'blue', 'green', 'yellow') // add
+
+console.log(boxElement.classList.contains('blue')); // contains (kiem tra co ton tai hay ko)
+
+boxElement.classList.remove('yellow'); // remove
+
+console.log(boxElement.classList.contains('yellow'));
+
+setTimeout(() => {
+    boxElement.classList.remove('red');
+}, 3000);
+
+
+setInterval(() => {
+    boxElement.classList.toggle('red');
+}, 1000);
+
+// toggle: Kiểm tra xem có class hay không, nếu không thì thêm, nếu có thì xoá.
