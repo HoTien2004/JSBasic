@@ -417,4 +417,171 @@ fetch(postApi)
     - Read: Lấy dữ liệu -> GET
     - Update: Chỉnh sửa -> PUT / PATCH
     - Delete: Xoá -> DELETE
-* Postman
+* Postman (Sử dụng Postman làm việc với REST API)
+    - Sự khác nhau giữa PUT và PATCH:
+        + Khi sử dụng phương thức PUT, phải gửi toàn bộ dữ liệu mới lên máy chủ, kể cả những dữ liệu không muốn thay đổi.
+        + Khi sử dụng phương thức PATCH, chỉ cần gửi trường dữ liệu muốn thay đổi, dữ liệu cũ không thay đổi sẽ được giữ nguyên.
+        + Tóm lại PUT thường dùng để thay thế toàn bộ dữ liệu còn PATCH chỉ để thay thế 1 trường dữ liệu cụ thể nào đó.
+** Rest API ?
+
+///// Thêm/sửa/xóa khóa học với Fetch và REST API (Tất cả dữ liệu chỉ tham khảo
+      không đầy đủ, chú ý vào thư mục json-sever)
+
+html
+[<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Danh sách khoá học</h2>
+
+        <ul id="list-courses">
+            <li></li>
+        </ul>
+    </div>
+
+    <div>
+        <div>
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" name="description">
+        </div>
+        <div>
+            <button id="create">Create</button>
+        </div>
+    </div>
+
+</body>
+    <script src="./main.js"></script>
+</html>]
+
+js
+[var courseAPI = 'http://localhost:3000/courses'
+
+function start() {
+    getCourses(renderCourses);
+
+    handleCreateForm();
+}
+
+start();
+
+// Functions
+function getCourses(callback) {
+    fetch(courseAPI)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(callback);
+}
+
+function createCourse(data, callback) {
+    var options = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }
+    fetch(courseAPI, options)
+        .then(function(response) {
+            response.json();
+        })
+        .then(callback);
+}
+
+function handleDeleteCourse(id) {
+    var options = {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    fetch(courseAPI + '/' + id, options)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function() {
+            var courseItem = document.querySelector('.course-item-' + id)
+            if (courseItem) {
+                courseItem.remove();
+            }
+        });
+}
+
+function handleUpdateCourse(id) {
+    fetch(courseAPI + '/' + id)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(course) {
+            document.querySelector('input[name="name"]').value = course.name;
+            document.querySelector('input[name="description"]').value = course.description;
+
+            var createBtn = document.querySelector('#create');
+            createBtn.innerText = 'Lưu'
+
+            createBtn.onclick = function() {
+                var updatedData = {
+                    name: document.querySelector('input[name="name"]').value,
+                    description: document.querySelector('input[name="description"]').value
+                };
+
+                var options = {
+                    method: 'PUT',
+                    body: JSON.stringify(updatedData),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                };
+                fetch(courseAPI + '/' + id, options)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function() {
+                        getCourses(renderCourses);
+                    });
+            }
+        });
+}
+
+function renderCourses(courses) {
+    var listCourseBlock =
+        document.querySelector('#list-courses')
+        var htmls = courses.map(function(course) {
+            return `
+                <li class="course-item-${course.id}">
+                    <h4>${course.name}</h4>
+                    <p>${course.description}</p>
+                    <button onclick="handleDeleteCourse(${course.id})">Xoá</button>
+                    <button onclick="handleUpdateCourse(${course.id})">Chỉnh Sửa</button>
+                </li>
+            `;
+        })
+        listCourseBlock.innerHTML = htmls.join('')
+}
+
+function handleCreateForm() {
+    var createBtn = document.querySelector('#create');
+
+    createBtn.onclick = function() {
+        var name = document.querySelector('input[name="name"]').value;
+        var description = document.querySelector('input[name="description"]').value;
+        
+        var formData = {
+            name: name,
+            description: description
+        }
+
+        createCourse(formData,function() {
+            getCourses(renderCourses);
+        });
+    }
+}]

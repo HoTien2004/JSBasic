@@ -1,14 +1,19 @@
 {
-    "courses": [
-        {
-            "id": 1,
-            "name": "Kiến thức cơ bản",
-            "description": "Dành cho người mới bắt đầu"
-        },
-        {
-            "id": 2,
-            "name": "Kiến thức tin học",
-            "description": "Dành cho người mới bắt đầu 2"
-        }
-    ]
+  "courses": [
+    {
+      "name": "Node & ExpressJS",
+      "description": "Học Back-end với Node & ExpressJS framework, hiểu các khái niệm khi làm Back-end và xây dựng RESTful API cho trang web.",
+      "id": 3
+    },
+    {
+      "name": "Lập Trình JavaScript Cơ Bản 2",
+      "description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+      "id": 6
+    },
+    {
+      "name": "Lập Trình JavaScript Cơ Bản",
+      "description": "sadsadsad",
+      "id": 8
+    }
+  ]
 }
